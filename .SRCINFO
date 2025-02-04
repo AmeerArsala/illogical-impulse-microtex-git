@@ -1,6 +1,6 @@
 pkgbase = illogical-impulse-microtex-git
 	pkgdesc = MicroTeX for illogical-impulse dotfiles.
-	pkgver = r492.d87ebec
+	pkgver = r494.0e3707f
 	pkgrel = 1
 	url = https://github.com/NanoMichael/MicroTeX
 	arch = x86_64

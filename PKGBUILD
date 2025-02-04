@@ -1,6 +1,6 @@
 pkgname=illogical-impulse-microtex-git
 _pkgname=MicroTeX
-pkgver=r492.d87ebec
+pkgver=r494.0e3707f
 pkgrel=1
 pkgdesc='MicroTeX for illogical-impulse dotfiles.'
 #pkgdesc="A dynamic, cross-platform, and embeddable LaTeX rendering library"
@@ -8,10 +8,10 @@ arch=("x86_64")
 url="https://github.com/NanoMichael/${_pkgname}"
 license=('MIT')
 depends=(
-	tinyxml2
-	gtkmm3
-	gtksourceviewmm
-	cairomm
+  tinyxml2
+  gtkmm3
+  gtksourceviewmm
+  cairomm
 )
 makedepends=("git" "cmake")
 source=("git+${url}.git")
@@ -20,6 +20,11 @@ sha256sums=("SKIP")
 pkgver() {
   cd $_pkgname
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+  cd $_pkgname
+  sed -i 's/gtksourceviewmm-3.0/gtksourceviewmm-4.0/' CMakeLists.txt
 }
 
 build() {
